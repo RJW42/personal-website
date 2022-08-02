@@ -1,0 +1,96 @@
+.toggle-switch {
+  $transition-time: 0.1s;
+  $width: 70px;
+  $height: 34px;
+  $font-size: 14px;
+  $switch-width: 24px;
+  $switch-offset: 38px;
+  $switch-border: calc($switch-width / 2);
+  $switch-margin: calc(($height - $switch-width) / 2);
+  $text-padding: 10px;
+  $outter-radious: 20px;
+
+
+  position: relative;
+  width: $width;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: left;
+  &-checkbox {
+    display: none;
+  }
+  &-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0 solid #bbb;
+    border-radius: $outter-radious;
+    margin: 0;
+  }
+  &-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin $transition-time ease-in 0s;
+    &:before,
+    &:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: $height;
+      padding: 0;
+      line-height: $height;
+      font-size: $font-size;
+      color: white;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    &:before {
+      content: "Yes";
+      text-transform: uppercase;
+      padding-left: $text-padding;
+      background-color: #f90;
+      color: #fff;
+    }
+  }
+  &-disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    &:before {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+  }
+  &-inner:after {
+    content: "No";
+    text-transform: uppercase;
+    padding-right: $text-padding;
+    background-color: #bbb;
+    color: #fff;
+    text-align: right;
+  }
+  &-switch {
+    display: block;
+    width: $switch-width;
+    margin: $switch-margin;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $switch-offset;
+    border: 0 solid #bbb;
+    border-radius: $switch-border;
+    transition: all $transition-time ease-in 0s;
+  }
+  &-checkbox:checked + &-label {
+    .toggle-switch-inner {
+      margin-left: 0px;
+    }
+    .toggle-switch-switch {
+      right: 2px;
+    }
+  }
+}

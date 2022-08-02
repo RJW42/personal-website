@@ -1,3 +1,20 @@
-.header .element {
-   font-size: 2em;
+.header {
+   border-bottom: 0.05em solid lightcoral;
+   left: 0;
+   top: 0;
+
+   .element {
+      font-size: 1.25em;
+      padding: 0 0.1em;
+      margin: 0.5em 0.5em;
+
+      &.active {
+         border-bottom: 0.05em solid red;
+      }
+   }
+
+   .float-right {
+      position: fixed;
+      right: 0
+   }
 }

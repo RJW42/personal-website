@@ -1,0 +1,11 @@
+button {
+   background-color: inherit;
+
+   &:hover {
+      cursor: pointer;
+   }
+}
+
+.clickable:hover {
+   cursor: pointer;
+}
