@@ -1,20 +1,27 @@
-import React from 'react';
-import { PClassName } from '../../types/Props';
-import { useTheme } from '../../hooks';
-import { ToggleSwitch } from '../toggleSwitch/ToggleSwitch';
+import React from "react";
+import {useTheme} from "../../hooks";
+import TextTransition, { presets } from "react-text-transition";
 
 
-const ThemeToggle = ({className} : PClassName) => {
-   className = className ? className : "";
-   const { toggleTheme } = useTheme();
-   
+const ThemeToggle = ({className}: {className?: string}) => {
+   const {theme, toggleTheme} = useTheme();
+   className = "clickable " + (className ? className : "");
 
    return (
-      <ToggleSwitch 
-         name="theme-toggle"
-         className={" " + className}
-      />
-   )
+      <div 
+         className={className}
+         onClick={toggleTheme}
+      >
+         <TextTransition 
+            springConfig={presets.gentle}
+            style={{marginRight: "1em"}}
+            inline
+         >
+            {theme.charAt(0).toUpperCase() + theme.slice(1)}
+         </TextTransition>
+         Theme 
+      </div>
+   );
 }
 
 export {ThemeToggle};

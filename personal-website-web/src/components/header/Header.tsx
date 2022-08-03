@@ -12,11 +12,8 @@ const Header = () => {
           {link}
         </div>
       )}
-      <div className='element clickable float-right'>
-          Test
-      </div>
       <ThemeToggle 
-        className='element float-right'
+        className='element float-right theme-toggle-container'
       />
     </div>
   );
