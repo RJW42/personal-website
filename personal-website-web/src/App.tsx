@@ -1,26 +1,24 @@
 import React from 'react';
 
 import {Header} from "./components";
-import { ThemeProvider } from './hooks';
+import { useThemeChoise } from './hooks';
 import {AboutPage} from "./pages";
 
 
-
-
 const App = () => {
-  
+  const className = useThemeChoise(
+    'bg-light', 'bg-dark'
+  )
 
   return (
-    <ThemeProvider>
-      <div className="App">
-        <header>
-          <Header/>
-        </header>
-        <main>
-          <AboutPage/>
-        </main>
-      </div>
-    </ThemeProvider>
+    <div className={"App " + className}>
+      <header>
+        <Header/>
+      </header>
+      <main>
+        <AboutPage/>
+      </main>
+    </div>
   );
 }
 

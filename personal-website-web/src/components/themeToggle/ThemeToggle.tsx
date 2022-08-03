@@ -17,9 +17,8 @@ const ThemeToggle = ({className}: {className?: string}) => {
             style={{marginRight: "1em"}}
             inline
          >
-            {theme.charAt(0).toUpperCase() + theme.slice(1)}
+            {"Theme " + theme.charAt(0).toUpperCase() + theme.slice(1)}
          </TextTransition>
-         Theme 
       </div>
    );
 }

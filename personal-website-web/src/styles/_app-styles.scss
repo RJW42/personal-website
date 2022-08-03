@@ -5,3 +5,13 @@ body {
 main {
    padding-top: 4em;
 }
+
+.bg-light {
+   background-color: $body-light;
+   $color: $text-light;
+}
+
+.bg-dark {
+   background-color: $body-dark;
+   color: $text-dark;
+}
