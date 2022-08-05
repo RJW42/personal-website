@@ -1,15 +1,23 @@
 .header {
-   border-bottom: 0.05em solid lightcoral;
+   $ligh-bg-color: darken($body-light, 10);
+   $dark-bg-color: lighten($body-dark, 10);
+   
    left: 0;
    top: 0;
+   height: 3em;
+   
 
    .element {
       font-size: 1.25em;
       padding: 0 0.1em;
-      margin: 0.5em 0.5em;
+      height: 1.25em;
+      margin: 0 0.5em;
+      box-sizing: border-box;
+      
 
-      &.active {
-         border-bottom: 0.05em solid $primary;
+      &.navlink.active,
+      &.navlink:hover {
+         border-bottom: 0.1em solid $primary;
       }
    }
 
@@ -20,5 +28,15 @@
 
    .theme-toggle-container{
       scale: 0.70;
+   }
+
+   &.bg-light {
+      background-color: $ligh-bg-color;
+      border-bottom: 0.05em solid $body-dark;
+   }
+
+   &.bg-dark {
+      background-color: $dark-bg-color;
+      border-bottom: 0.05em solid $body-light;
    }
 }

@@ -1,16 +1,27 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import { ThemeToggle } from '../';
+import { useThemeChoise } from '../../hooks';
 
 
-const Header = () => {
-  const links = ['About', 'Projects', 'CV', 'Contact Me'];
+type Link = {
+  name: string;
+  url: string;
+}
+
+const Header = ({links} : {links: Link[]}) => {
+  const color = useThemeChoise('bg-light', 'bg-dark');
 
   return (
-    <div className='header absolute flex row jc-center width-100'>
+    <div className={'header absolute flex row jc-center ai-center width-100 ' + color}>
       { links.map(link => 
-        <div className='element clickable'>
-          {link}
-        </div>
+        <NavLink 
+          className='element navlink clickable clean-link'
+          to={link.url}
+        >
+          {link.name}
+        </NavLink>
       )}
       <ThemeToggle 
         className='element float-right theme-toggle-container'
